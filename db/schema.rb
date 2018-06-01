@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180601163729) do
+ActiveRecord::Schema.define(version: 20180601165613) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "to",                               null: false
@@ -55,6 +55,18 @@ ActiveRecord::Schema.define(version: 20180601163729) do
     t.index ["phone"], name: "index_contacts_on_phone"
   end
 
+  create_table "contacts_labels", id: false, force: :cascade do |t|
+    t.integer "contact_id", null: false
+    t.integer "label_id",   null: false
+    t.index ["contact_id", "label_id"], name: "index_contacts_labels_on_contact_id_and_label_id"
+  end
+
+  create_table "contacts_lists", id: false, force: :cascade do |t|
+    t.integer "contact_id", null: false
+    t.integer "list_id",    null: false
+    t.index ["contact_id", "list_id"], name: "index_contacts_lists_on_contact_id_and_list_id"
+  end
+
   create_table "correspondences", force: :cascade do |t|
     t.integer  "from_id",                            null: false
     t.string   "from_type"
@@ -76,6 +88,12 @@ ActiveRecord::Schema.define(version: 20180601163729) do
     t.index ["occasion"], name: "index_correspondences_on_occasion"
     t.index ["status"], name: "index_correspondences_on_status"
     t.index ["to_id", "to_type"], name: "index_correspondences_on_to_id_and_to_type"
+  end
+
+  create_table "correspondences_labels", id: false, force: :cascade do |t|
+    t.integer "correspondence_id", null: false
+    t.integer "label_id",          null: false
+    t.index ["correspondence_id", "label_id"], name: "index_correspondences_labels_on_correspondence_id_and_label_id"
   end
 
   create_table "households", force: :cascade do |t|
