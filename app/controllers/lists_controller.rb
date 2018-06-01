@@ -9,8 +9,7 @@ class ListsController < ApplicationController
 
   # GET /lists/1
   # GET /lists/1.json
-  def show
-  end
+  def show; end
 
   # GET /lists/new
   def new
@@ -18,8 +17,7 @@ class ListsController < ApplicationController
   end
 
   # GET /lists/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /lists
   # POST /lists.json
@@ -62,13 +60,14 @@ class ListsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_list
-      @list = List.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def list_params
-      params.fetch(:list, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_list
+    @list = List.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def list_params
+    params.fetch(:list, {})
+  end
 end

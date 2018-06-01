@@ -9,8 +9,7 @@ class LabelsController < ApplicationController
 
   # GET /labels/1
   # GET /labels/1.json
-  def show
-  end
+  def show; end
 
   # GET /labels/new
   def new
@@ -18,8 +17,7 @@ class LabelsController < ApplicationController
   end
 
   # GET /labels/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /labels
   # POST /labels.json
@@ -62,13 +60,14 @@ class LabelsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_label
-      @label = Label.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def label_params
-      params.fetch(:label, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_label
+    @label = Label.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def label_params
+    params.fetch(:label, {})
+  end
 end

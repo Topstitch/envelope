@@ -9,8 +9,7 @@ class HouseholdsController < ApplicationController
 
   # GET /households/1
   # GET /households/1.json
-  def show
-  end
+  def show; end
 
   # GET /households/new
   def new
@@ -18,8 +17,7 @@ class HouseholdsController < ApplicationController
   end
 
   # GET /households/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /households
   # POST /households.json
@@ -62,13 +60,14 @@ class HouseholdsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_household
-      @household = Household.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def household_params
-      params.fetch(:household, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_household
+    @household = Household.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def household_params
+    params.fetch(:household, {})
+  end
 end

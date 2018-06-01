@@ -9,8 +9,7 @@ class CorrespondencesController < ApplicationController
 
   # GET /correspondences/1
   # GET /correspondences/1.json
-  def show
-  end
+  def show; end
 
   # GET /correspondences/new
   def new
@@ -18,8 +17,7 @@ class CorrespondencesController < ApplicationController
   end
 
   # GET /correspondences/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /correspondences
   # POST /correspondences.json
@@ -62,13 +60,14 @@ class CorrespondencesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_correspondence
-      @correspondence = Correspondence.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def correspondence_params
-      params.fetch(:correspondence, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_correspondence
+    @correspondence = Correspondence.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def correspondence_params
+    params.fetch(:correspondence, {})
+  end
 end
