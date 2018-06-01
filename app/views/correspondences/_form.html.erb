@@ -1,0 +1,17 @@
+<%= form_for(correspondence) do |f| %>
+  <% if correspondence.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(correspondence.errors.count, "error") %> prohibited this correspondence from being saved:</h2>
+
+      <ul>
+      <% correspondence.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
