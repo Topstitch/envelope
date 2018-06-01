@@ -1,0 +1,59 @@
+AllCops:
+  Exclude:
+    - 'db/schema.rb'
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+    - 'bin/bundle'
+    - 'bin/rails'
+    - 'bin/setup'
+    - 'bin/rake'
+    - 'bin/spring'
+    - 'bin/update'
+    - test/**/*
+  DisplayCopNames: true
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 23
+  Exclude:
+    - test/**/*
+
+Metrics/AbcSize:
+  Max: 29
+
+Metrics/ClassLength:
+  Max: 260
+  Exclude:
+    - test/**/*
+
+Metrics/ModuleLength:
+  Max: 200
+
+Style/SignalException:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Max: 9
+
+Metrics/PerceivedComplexity:
+  Max: 9
+
+Style/AsciiComments:
+  Enabled: false
+
+Metrics/ParameterLists:
+  Max: 10
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
