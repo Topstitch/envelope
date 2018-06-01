@@ -9,7 +9,8 @@ class CorrespondencesController < ApplicationController
 
   # GET /correspondences/1
   # GET /correspondences/1.json
-  def show; end
+  def show
+  end
 
   # GET /correspondences/new
   def new
@@ -17,7 +18,8 @@ class CorrespondencesController < ApplicationController
   end
 
   # GET /correspondences/1/edit
-  def edit; end
+  def edit
+  end
 
   # POST /correspondences
   # POST /correspondences.json

@@ -9,7 +9,8 @@ class ListsController < ApplicationController
 
   # GET /lists/1
   # GET /lists/1.json
-  def show; end
+  def show
+  end
 
   # GET /lists/new
   def new
@@ -17,7 +18,8 @@ class ListsController < ApplicationController
   end
 
   # GET /lists/1/edit
-  def edit; end
+  def edit
+  end
 
   # POST /lists
   # POST /lists.json

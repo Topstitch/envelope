@@ -31,6 +31,9 @@ Metrics/ClassLength:
 Metrics/ModuleLength:
   Max: 200
 
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
 Style/SignalException:
   Enabled: false
 
