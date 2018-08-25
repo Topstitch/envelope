@@ -1,6 +1,4 @@
 class Label < ApplicationRecord
-  has_many :contacts_labels, dependent: :destroy
-  has_many :contacts, through: :contacts_labels
-  has_many :correspondences_labels, dependent: :destroy
-  has_many :correspondences, through: :correspondences_labels
+  has_and_belongs_to_many :contacts
+  has_and_belongs_to_many :correspondences
 end
