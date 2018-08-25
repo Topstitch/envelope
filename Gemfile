@@ -35,6 +35,8 @@ gem 'rubocop'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  # https://github.com/seattlerb/minitest/issues/730 error with any failure causing a syntax error
+  # but then it also errors trying to put minitest at an earlier version :(
 end
 
 group :development do

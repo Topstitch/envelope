@@ -1,14 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  from: esmeralda
-  from_type: "Contact"
-  to: harold
-  to_type: "Contact"
-  category: "letter"
+  from_id: esmeralda
+  from_type: Contact
+  to_id: harold
+  to_type: Contact
+  category: letter
 two:
-  from: goat
-  from_type: "Household"
-  to: rabbit
-  to_type: "Household"
-  category: "gift"
+  from_id: goat
+  from_type: Household
+  to_id: rabbit
+  to_type: Household
+  category: gift

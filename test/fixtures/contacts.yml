@@ -1,6 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 esmeralda:
- name: "Esmeralda Goat"
+ first: Esmeralda
 harold:
- name: "Harold Goat"
+ first: Harold
