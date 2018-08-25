@@ -11,4 +11,6 @@ class Correspondence < ApplicationRecord
   validates :from_type, :to_type, inclusion: { in: %w(Contact Household) }
   validates :category, inclusion: { in: CATEGORIES }
   validates :status, inclusion: { in: STATUSES }
+
+  acts_as_paranoid
 end

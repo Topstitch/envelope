@@ -6,6 +6,8 @@ class Contact < ApplicationRecord
   has_many :correspondences_to, -> { where to_type: "Contact"}, class_name: Correspondence, foreign_key: :to_id, foreign_type: :to_type
   
   validates :first, presence: true
+
+  acts_as_paranoid
   
   def correspondences
     Correspondence.where("(from_type = 'Contact' AND from_id = #{self.id}) OR (to_type = 'Contact' AND to_id = #{self.id})")

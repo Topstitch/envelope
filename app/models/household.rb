@@ -5,6 +5,8 @@ class Household < ApplicationRecord
   has_many :correspondences_to, -> { where to_type: "Household" }, class_name: Correspondence, foreign_key: :to_id, foreign_type: :to_type
 
   validates :name, presence: true
+
+  acts_as_paranoid
   
   def correspondences
     Correspondence.where("(from_type = 'Household' AND from_id = #{self.id}) OR (to_type = 'Household' AND to_id = #{self.id})")

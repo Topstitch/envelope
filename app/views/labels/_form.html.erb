@@ -10,8 +10,13 @@
       </ul>
     </div>
   <% end %>
+  
+  <p>
+    <strong><%= f.label :name %></strong>
+    <%= f.text_field :name %>
+  </p>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Submit', class: 'submit-button' %>
   </div>
 <% end %>

@@ -1,35 +1,111 @@
+$black: #000;
+$white: #fff;
+
+$warning: #c7310c;
+$notice: #146114;
+
+$text-dark-grey: #333;
+$visited-link-grey: #666;
+
+$background-blue: #a2d2e0;
+$background-grey: #f0f0f0bb;
+$background-green: #9fd89f;
+
+$button-grey: #e0dbdb;
+$submit-button-green: #8ebd8e;
+$submit-button-dark-green: #378037;
+$sort-button-pink: #dd9696;
+$sort-button-selected-red: #ca6b6b;
+
+// GENERAL
+
 body {
-  background-color: #fff;
-  color: #333;
+  background-color: $white;
+  color: $text-dark-grey;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
-  margin: 33px;
+  margin: 50px 50px;
 }
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
-  margin: 33px;
+  margin: 20px 0px;
 }
 
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
+h2 {
+  margin: 33px 0px;
 }
+
+// LINKS
 
 a {
-  color: #000;
+  color: $black;
+  background-color: $button-grey;
+  padding: 6px 10px;
+  border-radius: 7px;
+  margin-right: 5px;
 
   &:visited {
-    color: #666;
+    color: $visited-link-grey;
   }
 
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: $button-grey;
+    background-color: $visited-link-grey;
+  }
+
+  text-decoration: none;
+}
+
+.sort-buttons a {
+  background-color: $sort-button-pink;
+  margin-right: 5px;
+}
+
+.sort-buttons a.selected {
+  background-color: $sort-button-selected-red;
+}
+
+// BUTTONS 
+
+.submit-button {
+  color: $black;
+  background-color: $submit-button-green;
+  padding: 6px 10px;
+  border-radius: 7px;
+  border-style: none;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover {
+    color: $white;
+    background-color: $submit-button-dark-green;
+  }
+}
+
+// FORMS
+
+input {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+
+// TABLES
+
+table {
+  border-collapse: collapse;
+
+  a {
+    padding: 2px 6px;
+    margin-right: 0;
   }
 }
 
@@ -37,10 +113,11 @@ th {
   padding-bottom: 5px;
 }
 
+tr:nth-child(odd) {background: $background-blue}
+tr:nth-child(even) {background: $background-grey}
+
 td {
-  padding-bottom: 7px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 7px;
 }
 
 div {
@@ -49,23 +126,28 @@ div {
   }
 }
 
+// ERRORS
+
 #notice {
-  color: green;
+  color: $notice;
+  font-weight: bold;
+  padding: 30px;
+  background-color: $background-green;
 }
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
+  background-color: $warning;
   display: table;
 }
 
 #error_explanation {
   width: 450px;
-  border: 2px solid red;
+  border: 2px solid $warning;
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
-  background-color: #f0f0f0;
+  background-color: $background-grey;
 
   h2 {
     text-align: left;
@@ -74,8 +156,8 @@ div {
     font-size: 12px;
     margin: -7px;
     margin-bottom: 0;
-    background-color: #c00;
-    color: #fff;
+    background-color: $warning;
+    color: $white;
   }
 
   ul li {

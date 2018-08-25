@@ -4,7 +4,15 @@ class LabelsController < ApplicationController
   # GET /labels
   # GET /labels.json
   def index
-    @labels = Label.all
+    @sort = params[:sort] || 'oldest'
+    case @sort
+    when 'oldest'
+      @labels = Label.all.order('created_at ASC')
+    when 'newest'
+      @labels = Label.all.order('created_at DESC')
+    when 'alphabetical'
+      @labels = Label.all.order('name ASC')
+    end
   end
 
   # GET /labels/1
@@ -28,7 +36,7 @@ class LabelsController < ApplicationController
 
     respond_to do |format|
       if @label.save
-        format.html { redirect_to @label, notice: 'Label was successfully created.' }
+        format.html { redirect_to labels_url, notice: 'Label was successfully created.' }
         format.json { render :show, status: :created, location: @label }
       else
         format.html { render :new }
@@ -42,7 +50,7 @@ class LabelsController < ApplicationController
   def update
     respond_to do |format|
       if @label.update(label_params)
-        format.html { redirect_to @label, notice: 'Label was successfully updated.' }
+        format.html { redirect_to labels_url, notice: 'Label was successfully updated.' }
         format.json { render :show, status: :ok, location: @label }
       else
         format.html { render :edit }
@@ -70,6 +78,6 @@ class LabelsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def label_params
-    params.fetch(:label, {})
+    params.require(:label).permit(:name)
   end
 end

@@ -1,4 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_label_path(@label) %> |
-<%= link_to 'Back', labels_path %>
+<h1><%= @label.name %></h1>
+
+<h2>Label <%= @label.id %></h2>
+
+<p><strong>Created at:</strong> <%= @label.created_at %></p>
+<p><strong>Updated at:</strong> <%= @label.updated_at %></p>
+<p><strong>Deleted at:</strong> <%= @label.deleted_at %></p>
+
+<%= link_to 'Edit', edit_label_path(@label) %> <%= render partial: 'links' %>

@@ -10,4 +10,6 @@ class Address < ApplicationRecord
   validates :state, inclusion: { in: FIFTY_US_STATES }, if: -> { country == 'USA' }
   validates :country, inclusion: { in: COUNTRY_CODES }
   validates :category, inclusion: { in: CATEGORIES }
+
+  acts_as_paranoid
 end
