@@ -12,8 +12,12 @@ $background-grey: #f0f0f0bb;
 $background-green: #9fd89f;
 
 $button-grey: #e0dbdb;
+
+$action-button-yellow: #f0d806;
+
 $submit-button-green: #8ebd8e;
 $submit-button-dark-green: #378037;
+
 $sort-button-pink: #dd9696;
 $sort-button-selected-red: #ca6b6b;
 
@@ -65,6 +69,10 @@ a {
   margin-right: 5px;
 }
 
+.action-buttons {
+  background-color: $action-button-yellow;
+}
+
 .sort-buttons a.selected {
   background-color: $sort-button-selected-red;
 }
@@ -95,6 +103,10 @@ input {
   font-size: 13px;
   padding: 5px;
   margin: 5px 0;
+}
+
+textarea {
+  font-family: verdana, arial, helvetica, sans-serif;
 }
 
 

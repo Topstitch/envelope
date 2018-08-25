@@ -1,8 +1,18 @@
-<p id="notice"><%= notice %></p>
+<% if notice %> 
+  <p id="notice"><%= notice %></p>
+<% end %>
 
 <h1>Labels</h1>
 
-<%= link_to 'New Label', new_label_path %> <%= link_to 'Desk', root_path %>
+<p>
+  <%= link_to 'New Label', new_label_path, class: 'action-buttons' %>
+  <%= link_to 'Desk', root_path %>
+  <%= link_to 'Households', households_path %> 
+  <%= link_to 'Contacts', contacts_path %> 
+  <%= link_to 'Addresses', addresses_path %> 
+  <%= link_to 'Correspondences', correspondences_path %> 
+  <%= link_to 'Lists', lists_path %>
+</p>
 
 <%= render partial: 'sort' %>
 
@@ -20,7 +30,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-

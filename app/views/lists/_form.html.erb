@@ -11,7 +11,17 @@
     </div>
   <% end %>
 
+  <p>
+    <strong><%= f.label 'Name*' %></strong>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <strong><%= f.label :notes %></strong>
+    <%= f.text_area :notes, size: "60x12" %>
+  </p>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Submit', class: 'submit-button'%>
   </div>
 <% end %>
