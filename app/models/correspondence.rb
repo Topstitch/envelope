@@ -13,4 +13,8 @@ class Correspondence < ApplicationRecord
   validates :status, inclusion: { in: STATUSES }
 
   acts_as_paranoid
+
+  def display_info
+    "#{category.upcase} from: #{from.display_name}, to: #{to.display_name}"
+  end
 end

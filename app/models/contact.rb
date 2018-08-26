@@ -17,6 +17,10 @@ class Contact < ApplicationRecord
     household.addresses.first
   end
 
+  def display_name
+    "#{first} #{last}"
+  end
+
   def self.me
     Contact.joins(:labels).where(labels: { name: 'me' })
   end

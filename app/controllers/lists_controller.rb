@@ -18,6 +18,8 @@ class ListsController < ApplicationController
   # GET /lists/1
   # GET /lists/1.json
   def show
+    @contacts = @list.contacts
+    @correspondences = @list.correspondences
   end
 
   # GET /lists/new

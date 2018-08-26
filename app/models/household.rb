@@ -12,6 +12,10 @@ class Household < ApplicationRecord
     Correspondence.where("(from_type = 'Household' AND from_id = #{self.id}) OR (to_type = 'Household' AND to_id = #{self.id})")
   end
 
+  def display_name
+    "#{name} #{description}"
+  end
+
   def self.home
     Contact.me.household
   end
