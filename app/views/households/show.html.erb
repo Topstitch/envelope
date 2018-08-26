@@ -1,4 +1,23 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @household.name %></h1>
 
-<%= link_to 'Edit', edit_household_path(@household) %> |
-<%= link_to 'Back', households_path %>
+<h2>Household <%= @household.id %></h2>
+
+<p><strong>Created at:</strong> <%= @household.created_at %></p>
+<p><strong>Updated at:</strong> <%= @household.updated_at %></p>
+<% if @household.deleted_at.present? %>
+  <p><strong>Deleted at:</strong> <%= @household.deleted_at %></p>
+<% end %>
+
+<%= link_to 'Edit', edit_household_path(@household) %><%= render partial: 'links' %>
+
+<h2>Contacts</h2>
+
+<% @contacts.each do |contact| %>
+  <p><%= contact.id %>. <%= link_to "#{contact.display_name}", contact_path(contact) %></p>
+<% end %>
+
+<h2>Addresses</h2>
+
+<% @addresses.each do |address| %>
+  <p><%= address.id %>. <%= link_to "#{address.display_info}", address_path(address) %></p>
+<% end %>

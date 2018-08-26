@@ -4,12 +4,22 @@ class HouseholdsController < ApplicationController
   # GET /households
   # GET /households.json
   def index
-    @households = Household.all
+    @sort = params[:sort] || 'oldest'
+    case @sort
+    when 'oldest'
+      @households = Household.all.order('created_at ASC')
+    when 'newest'
+      @households = Household.all.order('created_at DESC')
+    when 'alphabetical'
+      @households = Household.all.order('name ASC')
+    end
   end
 
   # GET /households/1
   # GET /households/1.json
   def show
+    @contacts = @household.contacts
+    @addresses = @household.addresses
   end
 
   # GET /households/new
@@ -28,7 +38,7 @@ class HouseholdsController < ApplicationController
 
     respond_to do |format|
       if @household.save
-        format.html { redirect_to @household, notice: 'Household was successfully created.' }
+        format.html { redirect_to households_url, notice: 'Household was successfully created.' }
         format.json { render :show, status: :created, location: @household }
       else
         format.html { render :new }
@@ -42,7 +52,7 @@ class HouseholdsController < ApplicationController
   def update
     respond_to do |format|
       if @household.update(household_params)
-        format.html { redirect_to @household, notice: 'Household was successfully updated.' }
+        format.html { redirect_to households_url, notice: 'Household was successfully updated.' }
         format.json { render :show, status: :ok, location: @household }
       else
         format.html { render :edit }
@@ -70,6 +80,6 @@ class HouseholdsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def household_params
-    params.fetch(:household, {})
+    params.require(:household).permit(:name, :description, :notes, :anniversary)
   end
 end

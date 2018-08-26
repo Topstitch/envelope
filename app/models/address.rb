@@ -1,6 +1,8 @@
 class Address < ApplicationRecord
-  belongs_to :household
+  include ApplicationHelper
 
+  belongs_to :household
+  
   validates :to, :line_1, :city, :state, :zip, :country, :category, presence: true
 
   FIFTY_US_STATES = %w(AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY).freeze
@@ -8,8 +10,14 @@ class Address < ApplicationRecord
   CATEGORIES = %w(primary temporary)
 
   validates :state, inclusion: { in: FIFTY_US_STATES }, if: -> { country == 'USA' }
+  # custom validator for zip code?
   validates :country, inclusion: { in: COUNTRY_CODES }
   validates :category, inclusion: { in: CATEGORIES }
 
   acts_as_paranoid
+
+  def display_info
+    verified_string = verified_at.present? ? "verified at #{format_date(verified_at)}" : "not verified"
+    "#{category.upcase} #{verified_string}: #{to}, #{line_1}, #{city}, #{state}, #{zip}"
+  end
 end

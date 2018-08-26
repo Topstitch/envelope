@@ -5,13 +5,16 @@
 <h1>Lists</h1>
 
 <p>
-  <%= link_to 'New List', new_list_path, class: 'action-buttons' %>
   <%= link_to 'Desk', root_path %>
   <%= link_to 'Households', households_path %>
   <%= link_to 'Contacts', contacts_path %>
   <%= link_to 'Addresses', addresses_path %>
   <%= link_to 'Correspondences', correspondences_path %>
   <%= link_to 'Labels', labels_path %>
+</p>
+
+<p>
+  <%= link_to 'New List', new_list_path, class: 'action-buttons' %>
 </p>
 
 <%= render partial: 'sort' %>
@@ -27,7 +30,7 @@
         <td style='width: 50px;'></td>
         <td><%= link_to 'Show', list %></td>
         <td><%= link_to 'Edit', edit_list_path(list) %></td>
-        <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: "Are you sure you want to destroy list #{list.id}?" } %></td>
       </tr>
     <% end %>
   </tbody>
