@@ -21,3 +21,15 @@
 <% @addresses.each do |address| %>
   <p><%= address.id %>. <%= link_to "#{address.display_info}", address_path(address) %></p>
 <% end %>
+
+<h2>Correspondences From</h2>
+
+<% @correspondences_from.each do |correspondence| %>
+  <p><%= correspondence.id %>. <%= link_to "#{correspondence.display_info}", correspondence_path(correspondence) %></p>
+<% end %>
+
+<h2>Correspondences To</h2>
+
+<% @correspondences_to.each do |correspondence| %>
+  <p><%= correspondence.id %>. <%= link_to "#{correspondence.display_info}", correspondence_path(correspondence) %></p>
+<% end %>

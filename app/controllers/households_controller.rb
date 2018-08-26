@@ -20,6 +20,8 @@ class HouseholdsController < ApplicationController
   def show
     @contacts = @household.contacts
     @addresses = @household.addresses
+    @correspondences_from = @household.correspondences_from
+    @correspondences_to = @household.correspondences_to
   end
 
   # GET /households/new
