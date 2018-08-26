@@ -18,6 +18,8 @@ class LabelsController < ApplicationController
   # GET /labels/1
   # GET /labels/1.json
   def show
+    @contacts = @label.contacts
+    @correspondences = @label.correspondences
   end
 
   # GET /labels/new

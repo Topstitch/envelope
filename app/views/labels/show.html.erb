@@ -4,6 +4,20 @@
 
 <p><strong>Created at:</strong> <%= @label.created_at %></p>
 <p><strong>Updated at:</strong> <%= @label.updated_at %></p>
-<p><strong>Deleted at:</strong> <%= @label.deleted_at %></p>
+<% if @label.deleted_at.present? %>
+  <p><strong>Deleted at:</strong> <%= @label.deleted_at %></p>
+<% end %>
 
-<%= link_to 'Edit', edit_label_path(@label) %> <%= render partial: 'links' %>
+<%= link_to 'Edit', edit_label_path(@label) %><%= render partial: 'links' %>
+
+<h2>Contacts</h2>
+
+<% @contacts.each do |contact| %>
+  <p><%= contact.id %>. <%= link_to "#{contact.display_name}", contact_path(contact) %></p>
+<% end %>
+
+<h2>Correspondences</h2>
+
+<% @correspondences.each do |correspondence| %>
+  <p><%= correspondence.id %>. <%= link_to "#{correspondence.display_info}", correspondence_path(correspondence) %></p>
+<% end %>

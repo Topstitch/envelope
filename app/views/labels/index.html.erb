@@ -22,6 +22,8 @@
       <tr>
         <td><%= label.id %></td>
         <td><strong><%= label.name %></strong></td>
+        <td>Contacts: <%= label.contacts.count %></td>
+        <td>Correspondences: <%= label.correspondences.count %></td>
         <td style='width: 50px;'></td>
         <td><%= link_to 'Show', label %></td>
         <td><%= link_to 'Edit', edit_label_path(label) %></td>
