@@ -16,7 +16,6 @@ class HouseholdsController < ApplicationController
   end
 
   # GET /households/1
-  # GET /households/1.json
   def show
     @contacts = @household.contacts
     @addresses = @household.addresses
@@ -34,43 +33,28 @@ class HouseholdsController < ApplicationController
   end
 
   # POST /households
-  # POST /households.json
   def create
     @household = Household.new(household_params)
-
-    respond_to do |format|
-      if @household.save
-        format.html { redirect_to households_url, notice: 'Household was successfully created.' }
-        format.json { render :show, status: :created, location: @household }
-      else
-        format.html { render :new }
-        format.json { render json: @household.errors, status: :unprocessable_entity }
-      end
+    if @household.save
+      redirect_to households_url, notice: 'Household was successfully created.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /households/1
-  # PATCH/PUT /households/1.json
   def update
-    respond_to do |format|
-      if @household.update(household_params)
-        format.html { redirect_to households_url, notice: 'Household was successfully updated.' }
-        format.json { render :show, status: :ok, location: @household }
-      else
-        format.html { render :edit }
-        format.json { render json: @household.errors, status: :unprocessable_entity }
-      end
+    if @household.update(household_params)
+      redirect_to households_url, notice: 'Household was successfully updated.'
+    else
+      render :edit
     end
   end
 
   # DELETE /households/1
-  # DELETE /households/1.json
   def destroy
     @household.destroy
-    respond_to do |format|
-      format.html { redirect_to households_url, notice: 'Household was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to households_url, notice: 'Household was successfully destroyed.'
   end
 
   private
