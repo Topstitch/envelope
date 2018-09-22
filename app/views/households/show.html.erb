@@ -1,14 +1,16 @@
-<h1><%= fa_icon Household.fa_icon_string %>  <%= @household.name %></h1>
+<div class='record'> 
+  <h1><%= fa_icon Household.fa_icon_string %>  <%= @household.name %></h1>
 
-<h2>Household <%= @household.id %></h2>
+  <h2>Household <%= @household.id %></h2>
 
-<p><strong>Created at:</strong> <%= @household.created_at %></p>
-<p><strong>Updated at:</strong> <%= @household.updated_at %></p>
-<% if @household.deleted_at.present? %>
-  <p><strong>Deleted at:</strong> <%= @household.deleted_at %></p>
-<% end %>
+  <p><strong>Created at:</strong> <%= @household.created_at %></p>
+  <p><strong>Updated at:</strong> <%= @household.updated_at %></p>
+  <% if @household.deleted_at.present? %>
+    <p><strong>Deleted at:</strong> <%= @household.deleted_at %></p>
+  <% end %>
 
-<%= render partial: 'shared/links', locals: { class_name: 'Household', links: { edit: true, home: true }, object_id: @household.id } %>
+  <%= render partial: 'shared/links', locals: { class_name: 'Household', links: { edit: true, home: true }, object_id: @household.id } %>
+</div>
 
 <h2><%= fa_icon Contact.fa_icon_string %> Contacts</h2>
 

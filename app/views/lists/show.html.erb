@@ -1,16 +1,18 @@
-<h1><%= fa_icon List.fa_icon_string %> <%= @list.name %></h1>
+<div class='record'>
+  <h1><%= fa_icon List.fa_icon_string %> <%= @list.name %></h1>
 
-<h2>List <%= @list.id %></h2>
+  <h2>List <%= @list.id %></h2>
 
-<p><%= @list.notes %></p>
+  <p><%= @list.notes %></p>
 
-<p><strong>Created at:</strong> <%= @list.created_at %></p>
-<p><strong>Updated at:</strong> <%= @list.updated_at %></p>
-<% if @list.deleted_at.present? %>
-  <p><strong>Deleted at:</strong> <%= @list.deleted_at %></p>
-<% end %>
+  <p><strong>Created at:</strong> <%= @list.created_at %></p>
+  <p><strong>Updated at:</strong> <%= @list.updated_at %></p>
+  <% if @list.deleted_at.present? %>
+    <p><strong>Deleted at:</strong> <%= @list.deleted_at %></p>
+  <% end %>
 
-<%= render partial: 'shared/links', locals: {  class_name: 'List', links: { edit: true, home: true }, object_id: @list.id } %>
+  <%= render partial: 'shared/links', locals: {  class_name: 'List', links: { edit: true, home: true }, object_id: @list.id } %>
+</div>
 
 <h2><%= fa_icon Contact.fa_icon_string %> Contacts</h2>
 
