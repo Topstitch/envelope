@@ -2,7 +2,7 @@ require 'test_helper'
 
 class HouseholdsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @household = households(:one)
+    @household = households(:goat)
   end
 
   test "should get index" do
@@ -17,10 +17,10 @@ class HouseholdsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create household" do
     assert_difference('Household.count') do
-      post households_url, params: { household: {  } }
+      post households_url, params: { household: { name: 'dolphin' } }
     end
 
-    assert_redirected_to household_url(Household.last)
+    assert_redirected_to households_url
   end
 
   test "should show household" do
@@ -34,8 +34,8 @@ class HouseholdsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update household" do
-    patch household_url(@household), params: { household: {  } }
-    assert_redirected_to household_url(@household)
+    patch household_url(@household), params: { household: { name: 'goat-bird' } }
+    assert_redirected_to households_url
   end
 
   test "should destroy household" do
