@@ -1,4 +1,4 @@
-<h1><%= @label.name %></h1>
+<h1><%= fa_icon Label.fa_icon_string %> <%= @label.name %></h1>
 
 <h2>Label <%= @label.id %></h2>
 
@@ -10,13 +10,13 @@
 
 <%= render partial: 'shared/links', locals: { class_name: 'Label', links: { edit: true, home: true }, object_id: @label.id } %>
 
-<h2>Contacts</h2>
+<h2><%= fa_icon Contact.fa_icon_string %> Contacts</h2>
 
 <% @contacts.each do |contact| %>
   <p><%= contact.id %>. <%= link_to "#{contact.display_name}", contact_path(contact) %></p>
 <% end %>
 
-<h2>Correspondences</h2>
+<h2><%= fa_icon Correspondence.fa_icon_string %> Correspondences</h2>
 
 <% @correspondences.each do |correspondence| %>
   <p><%= correspondence.id %>. <%= link_to "#{correspondence.display_info}", correspondence_path(correspondence) %></p>

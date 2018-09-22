@@ -1,4 +1,4 @@
-<h1><%= @household.name %></h1>
+<h1><%= fa_icon Household.fa_icon_string %>  <%= @household.name %></h1>
 
 <h2>Household <%= @household.id %></h2>
 
@@ -10,25 +10,25 @@
 
 <%= render partial: 'shared/links', locals: { class_name: 'Household', links: { edit: true, home: true }, object_id: @household.id } %>
 
-<h2>Contacts</h2>
+<h2><%= fa_icon Contact.fa_icon_string %> Contacts</h2>
 
 <% @contacts.each do |contact| %>
   <p><%= contact.id %>. <%= link_to "#{contact.display_name}", contact_path(contact) %></p>
 <% end %>
 
-<h2>Addresses</h2>
+<h2><%= fa_icon Address.fa_icon_string %> Addresses</h2>
 
 <% @addresses.each do |address| %>
   <p><%= address.id %>. <%= link_to "#{address.display_info}", address_path(address) %></p>
 <% end %>
 
-<h2>Correspondences From</h2>
+<h2><%= fa_icon Correspondence.fa_icon_string %> Correspondences From</h2>
 
 <% @correspondences_from.each do |correspondence| %>
   <p><%= correspondence.id %>. <%= link_to "#{correspondence.display_info}", correspondence_path(correspondence) %></p>
 <% end %>
 
-<h2>Correspondences To</h2>
+<h2><%= fa_icon Correspondence.fa_icon_string %> Correspondences To</h2>
 
 <% @correspondences_to.each do |correspondence| %>
   <p><%= correspondence.id %>. <%= link_to "#{correspondence.display_info}", correspondence_path(correspondence) %></p>
