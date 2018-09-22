@@ -1,7 +1,3 @@
-<h1><%= fa_icon 'envelope-o' %> envelope</h1>
-<%= link_to 'Households', households_path %> 
-<%= link_to 'Contacts', contacts_path %> 
-<%= link_to 'Addresses', addresses_path %> 
-<%= link_to 'Correspondences', correspondences_path %> 
-<%= link_to 'Labels', labels_path %> 
-<%= link_to 'Lists', lists_path %>
+<h1><%= fa_icon Desk.fa_icon_string %> envelope</h1>
+
+<%= render partial: 'shared/nav_bar', locals: {current_page: 'Desk'} %>

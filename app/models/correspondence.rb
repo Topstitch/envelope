@@ -4,6 +4,7 @@ class Correspondence < ApplicationRecord
   belongs_to :from, polymorphic: true
   belongs_to :to, polymorphic: true
 
+  FA_ICON = 'paper-plane-o'
   CATEGORIES = %w[card letter postcard gift package email ecard].freeze
   STATUSES = %w[initial complete].freeze
 
@@ -16,5 +17,9 @@ class Correspondence < ApplicationRecord
 
   def display_info
     "#{category.upcase} from: #{from.display_name}, to: #{to.display_name}"
+  end
+
+  def self.fa_icon_string
+    FA_ICON
   end
 end

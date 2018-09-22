@@ -8,6 +8,8 @@ class Household < ApplicationRecord
 
   acts_as_paranoid
 
+  FA_ICON = 'home'
+
   def correspondences
     Correspondence.where("(from_type = 'Household' AND from_id = #{id}) OR (to_type = 'Household' AND to_id = #{id})")
   end
@@ -18,5 +20,9 @@ class Household < ApplicationRecord
 
   def self.home
     Contact.me.household
+  end
+
+  def self.fa_icon_string
+    FA_ICON
   end
 end

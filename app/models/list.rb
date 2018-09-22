@@ -5,4 +5,10 @@ class List < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
   acts_as_paranoid
+
+  FA_ICON = 'list-ul'
+
+  def self.fa_icon_string
+    FA_ICON
+  end
 end

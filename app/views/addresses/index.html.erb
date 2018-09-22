@@ -1,6 +1,14 @@
-<p id="notice"><%= notice %></p>
+<% if notice %> 
+  <p id="notice"><%= notice %></p>
+<% end %>
 
 <h1>Addresses</h1>
+
+<%= render partial: 'shared/nav_bar', locals: {current_page: 'Address'} %>
+
+<p>
+  <%= link_to 'New Address', new_address_path, class: 'action-buttons' %>
+</p>
 
 <table>
   <thead>

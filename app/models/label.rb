@@ -5,4 +5,10 @@ class Label < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
   acts_as_paranoid
+
+  FA_ICON = 'tag'
+
+  def self.fa_icon_string
+    FA_ICON
+  end
 end

@@ -9,6 +9,8 @@ class Contact < ApplicationRecord
 
   acts_as_paranoid
 
+  FA_ICON = 'group'
+
   def correspondences
     Correspondence.where("(from_type = 'Contact' AND from_id = #{id}) OR (to_type = 'Contact' AND to_id = #{id})")
   end
@@ -23,5 +25,9 @@ class Contact < ApplicationRecord
 
   def self.me
     Contact.joins(:labels).where(labels: { name: 'me' })
+  end
+
+  def self.fa_icon_string
+    FA_ICON
   end
 end

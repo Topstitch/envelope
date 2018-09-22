@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Correspondences</h1>
+<h1><%= fa_icon Correspondence.fa_icon_string %> Correspondences</h1>
+
+<%= render partial: 'shared/nav_bar', locals: {current_page: 'Correspondence'} %>
 
 <table>
   <thead>

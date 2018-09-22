@@ -2,16 +2,9 @@
   <p id="notice"><%= notice %></p>
 <% end %>
 
-<h1>Labels</h1>
+<h1><%= fa_icon Label.fa_icon_string %> Labels</h1>
 
-<p>
-  <%= link_to 'Desk', root_path %>
-  <%= link_to 'Households', households_path %> 
-  <%= link_to 'Contacts', contacts_path %> 
-  <%= link_to 'Addresses', addresses_path %> 
-  <%= link_to 'Correspondences', correspondences_path %> 
-  <%= link_to 'Lists', lists_path %>
-</p>
+<%= render partial: 'shared/nav_bar', locals: {current_page: 'Label'} %>
 
 <p>
   <%= link_to 'New Label', new_label_path, class: 'action-buttons' %>
