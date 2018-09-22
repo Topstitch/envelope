@@ -10,15 +10,15 @@ class AddressesController < ApplicationController
     when 'newest'
       @addresses = Address.all.order('created_at DESC')
     when 'alphabetical'
-      @addresses = Address.all.order('to ASC')
+      @addresses = Address.all.order('recipient ASC')
     when 'orphans'
-      @addresses = Address.where(household_id: nil).order('to ASC')
+      @addresses = Address.orphans.order('recipient ASC')
     end
   end
 
   # GET /addresses/1
   def show
-    @household = self.household
+    @household = household
   end
 
   # GET /addresses/new
@@ -36,7 +36,7 @@ class AddressesController < ApplicationController
     if @address.save
       redirect_to @address, notice: 'Address was successfully created.'
     else
-      render :new 
+      render :new
     end
   end
 
@@ -64,6 +64,7 @@ class AddressesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def address_params
-    params.require(:household).permit(:to, :line_1, :line_2, :city, :state, :zip, :country, :category, :household_id, :verified_at, :notes)
+    params.require(:household).permit(:recipient, :line_1, :line_2, :city, :state, :zip, :country,
+                                      :category, :household_id, :verified_at, :notes)
   end
 end

@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180825183300) do
+ActiveRecord::Schema.define(version: 20180922190846) do
 
   create_table "addresses", force: :cascade do |t|
-    t.string   "to",                               null: false
+    t.string   "recipient",                        null: false
     t.string   "line_1",                           null: false
     t.string   "line_2"
     t.string   "city",                             null: false
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20180825183300) do
     t.index ["category"], name: "index_addresses_on_category"
     t.index ["deleted_at"], name: "index_addresses_on_deleted_at"
     t.index ["household_id"], name: "index_addresses_on_household_id"
-    t.index ["to"], name: "index_addresses_on_to"
+    t.index ["recipient"], name: "index_addresses_on_recipient"
     t.index ["verified_at"], name: "index_addresses_on_verified_at"
   end
 

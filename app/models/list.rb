@@ -6,7 +6,7 @@ class List < ApplicationRecord
 
   acts_as_paranoid
 
-  FA_ICON = 'list-ul'
+  FA_ICON = 'list-ul'.freeze
 
   def self.fa_icon_string
     FA_ICON

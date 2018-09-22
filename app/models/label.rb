@@ -6,7 +6,7 @@ class Label < ApplicationRecord
 
   acts_as_paranoid
 
-  FA_ICON = 'tag'
+  FA_ICON = 'tag'.freeze
 
   def self.fa_icon_string
     FA_ICON

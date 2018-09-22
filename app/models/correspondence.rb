@@ -4,7 +4,7 @@ class Correspondence < ApplicationRecord
   belongs_to :from, polymorphic: true
   belongs_to :to, polymorphic: true
 
-  FA_ICON = 'paper-plane-o'
+  FA_ICON = 'paper-plane-o'.freeze
   CATEGORIES = %w[card letter postcard gift package email ecard].freeze
   STATUSES = %w[initial complete].freeze
 

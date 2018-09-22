@@ -1,0 +1,12 @@
+<p class='sort-buttons'>
+  <%= link_to 'Oldest first', addresses_path(sort: 'oldest'), class: "#{@sort == 'oldest' ? 'selected' : ''}" %>
+  <%= link_to 'Newest first', addresses_path(sort: 'newest'), class: "#{@sort == 'newest' ? 'selected' : ''}" %>
+  <%= link_to 'Alphabetical', addresses_path(sort: 'alphabetical'), class: "#{@sort == 'alphabetical' ? 'selected' : ''}" %>
+  <%= link_to addresses_path(sort: 'orphans'), class: "#{@sort == 'orphans' ? 'selected' : ''}"  do %>
+    <% if Address.orphans? %>
+      <%= alert_icon %> Orphans <%= alert_icon %>
+    <% else %>
+      Orphans
+    <% end %>
+  <% end %>
+</p>
