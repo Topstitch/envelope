@@ -17,10 +17,10 @@ class ListsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create list" do
     assert_difference('List.count') do
-      post lists_url, params: { list: {  } }
+      post lists_url, params: { list: {name: 'Wedding Thank-Yous' } }
     end
 
-    assert_redirected_to list_url(List.last)
+    assert_redirected_to lists_url
   end
 
   test "should show list" do
@@ -34,8 +34,8 @@ class ListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update list" do
-    patch list_url(@list), params: { list: {  } }
-    assert_redirected_to list_url(@list)
+    patch list_url(@list), params: { list: {name: 'Christmas Cards 2018'  } }
+    assert_redirected_to lists_url
   end
 
   test "should destroy list" do
