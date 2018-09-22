@@ -2,4 +2,4 @@
 
 <%= render 'form', label: @label %>
 
-<%= link_to 'Show', @label %><%= link_to 'Labels', labels_path %>
+<%= render partial: 'shared/links', locals: { class_name: 'Label', links: { show: true }, object_id: @label.id } %>

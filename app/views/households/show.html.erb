@@ -8,7 +8,7 @@
   <p><strong>Deleted at:</strong> <%= @household.deleted_at %></p>
 <% end %>
 
-<%= link_to 'Edit', edit_household_path(@household) %><%= render partial: 'links' %>
+<%= render partial: 'shared/links', locals: { class_name: 'Household', links: { edit: true, home: true }, object_id: @household.id } %>
 
 <h2>Contacts</h2>
 

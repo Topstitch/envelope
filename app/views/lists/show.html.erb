@@ -10,7 +10,7 @@
   <p><strong>Deleted at:</strong> <%= @list.deleted_at %></p>
 <% end %>
 
-<%= link_to 'Edit', edit_list_path(@list) %><%= render partial: 'links' %>
+<%= render partial: 'shared/links', locals: {  class_name: 'List', links: { edit: true, home: true }, object_id: @list.id } %>
 
 <h2>Contacts</h2>
 

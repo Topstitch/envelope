@@ -34,7 +34,7 @@ class Address < ApplicationRecord
 
   def display_info
     verified_string = verified_at.present? ? "verified at #{format_date(verified_at)}" : "not verified"
-    "#{category.upcase} #{verified_string}: #{to}, #{line_1}, #{city}, #{state}, #{zip}"
+    "#{category.upcase} #{verified_string}: #{recipient}, #{line_1}, #{city}, #{state}, #{zip}"
   end
 
   def self.fa_icon_string

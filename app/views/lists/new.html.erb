@@ -2,4 +2,4 @@
 
 <%= render 'form', list: @list %>
 
-<%= render partial: 'links' %>
+<%= render partial: 'shared/links', locals: { class_name: 'List', links: { home: true } } %>

@@ -8,7 +8,7 @@
   <p><strong>Deleted at:</strong> <%= @label.deleted_at %></p>
 <% end %>
 
-<%= link_to 'Edit', edit_label_path(@label) %><%= render partial: 'links' %>
+<%= render partial: 'shared/links', locals: { class_name: 'Label', links: { edit: true, home: true }, object_id: @label.id } %>
 
 <h2>Contacts</h2>
 
