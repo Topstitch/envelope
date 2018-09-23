@@ -1,0 +1,14 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  from_id: esmeralda
+  from_type: Contact
+  to_id: harold
+  to_type: Contact
+  category: letter
+two:
+  from_id: goat
+  from_type: Household
+  to_id: rabbit
+  to_type: Household
+  category: gift

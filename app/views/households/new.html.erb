@@ -1,0 +1,5 @@
+<h1><%= fa_icon Household.fa_icon_string %> New Household</h1>
+
+<%= render 'form', household: @household %>
+
+<%= render partial: 'shared/links', locals: { class_name: 'Household', links: { home: true } } %>

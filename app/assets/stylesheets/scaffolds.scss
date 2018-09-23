@@ -1,0 +1,210 @@
+$black: #000;
+$white: #fff;
+
+$warning: #c7310c;
+$notice: #146114;
+
+$text-dark-grey: #333;
+$visited-link-grey: #666;
+
+$background-blue: #a2d2e0;
+$background-grey: #f0f0f0bb;
+$background-green: #9fd89f;
+
+$button-grey: #e0dbdb;
+
+$action-button-yellow: #f0d806;
+
+$submit-button-green: #8ebd8e;
+$submit-button-dark-green: #378037;
+
+$sort-button-pink: #dd9696;
+$sort-button-selected-red: #bb5757;
+
+// GENERAL
+
+body {
+  background-color: $white;
+  color: $text-dark-grey;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 50px 50px;
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 20px 0px;
+}
+
+h2 {
+  margin: 33px 0px;
+}
+
+// LINKS
+
+a {
+  color: $black;
+  background-color: $button-grey;
+  padding: 6px 10px;
+  border-radius: 7px;
+  margin-right: 5px;
+
+  &:visited {
+    color: $visited-link-grey;
+  }
+
+  &:hover {
+    color: $button-grey;
+    background-color: $visited-link-grey;
+  }
+
+  text-decoration: none;
+}
+
+.sort-buttons a {
+  background-color: $sort-button-pink;
+  margin-right: 5px;
+}
+
+.action-buttons {
+  background-color: $action-button-yellow;
+}
+
+.sort-buttons a.selected {
+  background-color: $sort-button-selected-red;
+  color: $white;
+}
+
+// BUTTONS 
+
+.submit-button {
+  color: $black;
+  background-color: $submit-button-green;
+  padding: 6px 10px;
+  border-radius: 7px;
+  border-style: none;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover {
+    color: $white;
+    background-color: $submit-button-dark-green;
+  }
+}
+
+// FORMS
+
+input {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+textarea {
+  font-family: verdana, arial, helvetica, sans-serif;
+}
+
+
+// TABLES
+
+table {
+  border-collapse: collapse;
+
+  a {
+    padding: 2px 6px;
+    margin-right: 0;
+  }
+}
+
+th {
+  padding-bottom: 5px;
+}
+
+tr:nth-child(odd) {background: $background-blue}
+tr:nth-child(even) {background: $background-grey}
+
+td {
+  padding: 7px;
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+// SHOW
+
+.record {
+  background-color: $background-blue;
+  padding: 1px 20px 20px;
+  border-radius: 14px;
+}
+
+// SUCCESS
+
+.verified {
+  color: $submit-button-dark-green;
+}
+
+span.verified {
+  font-size: 26px;
+  vertical-align: text-bottom;
+}
+
+// ERRORS
+
+.warning {
+  color: $white;
+  font-weight: bold;
+  background-color: $warning;
+  padding: 10px;
+}
+
+#notice {
+  color: $notice;
+  font-weight: bold;
+  padding: 30px;
+  background-color: $background-green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: $warning;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid $warning;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: $background-grey;
+
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0;
+    background-color: $warning;
+    color: $white;
+  }
+
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+label {
+  display: block;
+}

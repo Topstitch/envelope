@@ -1,0 +1,26 @@
+<h1><%= fa_icon Label.fa_icon_string %> Labels</h1>
+
+<%= render partial: 'shared/nav_bar', locals: {current_page: 'Label'} %>
+
+<p>
+  <%= link_to 'New Label', new_label_path, class: 'action-buttons' %>
+</p>
+
+<%= render partial: 'sort' %>
+
+<table>
+  <tbody>
+    <% @labels.each do |label| %>
+      <tr>
+        <td><%= label.id %></td>
+        <td><strong><%= label.name %></strong></td>
+        <td>Contacts: <%= label.contacts.count %></td>
+        <td>Correspondences: <%= label.correspondences.count %></td>
+        <td style='width: 50px;'></td>
+        <td><%= link_to 'Show', label %></td>
+        <td><%= link_to 'Edit', edit_label_path(label) %></td>
+        <td><%= link_to 'Destroy', label, method: :delete, data: { confirm: "Are you sure you want to destroy label #{label.id}?" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -8,8 +8,8 @@ class CreateAddresses < ActiveRecord::Migration[5.0]
       t.string :city, null: false
       t.string :state, null: false
       t.string :zip, null: false
-      t.string :country, null: false, :default => "US"
-      t.string :category, null: false, :default => "primary"
+      t.string :country, null: false, default: "US"
+      t.string :category, null: false, default: "primary"
       t.index :category
       t.references :households, index: true
       t.foreign_key :households

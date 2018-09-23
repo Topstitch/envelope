@@ -1,0 +1,5 @@
+<h1><%= fa_icon Address.fa_icon_string %> New Address</h1>
+
+<%= render 'form', address: @address %>
+
+<%= render partial: 'shared/links', locals: { class_name: 'Address', links: { home: true } } %>

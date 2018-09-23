@@ -1,0 +1,44 @@
+<div class='record'> 
+  <h1><%= fa_icon Address.fa_icon_string %>  <%= @address.recipient %></h1>
+
+  <h2><% if @address.the_verified_address? %><span class='verified'><%= verified_icon %></span><% end %> Address <%= @address.id %></h2>
+
+  <p><%= @address.formatted_address.html_safe %></p>
+
+  <p><strong>Category:</strong> <%= @address.category %></p>
+
+  <p><strong>Line 1:</strong> <%= @address.line_1 %></p>
+
+  <p><strong>Line 2:</strong> <%= @address.line_2 %></p>
+
+  <p><strong>City:</strong> <%= @address.city %></p>
+
+  <p><strong>State:</strong> <%= @address.state %></p>
+
+  <p><strong>Zip:</strong> <%= @address.zip %></p>
+
+  <p><strong>Country:</strong> <%= @address.country %></p>
+
+  <p><strong>Notes:</strong> <%= @address.notes %></p>
+
+  <p><strong>Verified at:</strong> <%= @address.verified_at %></p>
+
+  <p><strong>Created at:</strong> <%= @address.created_at %></p>
+
+  <p><strong>Updated at:</strong> <%= @address.updated_at %></p>
+
+  <% if @address.deleted_at.present? %>
+    <p><strong>Deleted at:</strong> <%= @address.deleted_at %></p>
+  <% end %>
+
+  <%= render partial: 'shared/links', locals: { class_name: 'Address', links: { edit: true, home: true }, object_id: @address.id } %>
+</div>
+
+<h2><%= fa_icon Household.fa_icon_string %> Household</h2>
+
+<% if @household.present? %>
+  <p><%= @household.id %>. <% if @address.the_verified_address? %><span class='verified'><%= verified_icon %></span><% end %> <%= link_to "#{@household.name}, #{@household.description}", household_path(@household) %></p>
+<% else %>
+  <p class='warning'>Needs a household!</p>
+<% end %>
+

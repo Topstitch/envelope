@@ -1,0 +1,20 @@
+<% desk_page_name = 'Desk' %>
+
+<% if links[:edit] %>
+  <%= link_to 'Edit', send("edit_#{class_name.downcase}_path", object_id) %>
+<% end %>
+
+<% if links[:show] %>
+  <%= link_to 'Show', send("#{class_name.downcase}_path", object_id) %>
+<% end %>
+
+<%= link_to send("#{class_name.downcase.pluralize}_path") do %>
+  <%= fa_icon class_name.constantize.fa_icon_string %> <%= class_name.pluralize %>
+<% end %>
+
+<% if links[:home] %>
+  <%= link_to root_path do %>
+    <%= fa_icon desk_page_name.constantize.fa_icon_string %> <%= desk_page_name %>
+  <% end %>
+<% end %>
+ 

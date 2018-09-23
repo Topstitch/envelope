@@ -1,0 +1,49 @@
+<div class='record'> 
+  <h1><%= fa_icon Household.fa_icon_string %>  <%= @household.name %></h1>
+
+  <h2>Household <%= @household.id %></h2>
+
+  <p><strong>Description:</strong> <%= @household.description %></p>
+
+  <p><strong>Notes:</strong> <%= @household.notes %></p>
+
+  <p><strong>Anniversary:</strong> <%= format_date(@household.anniversary) %></p>
+
+  <p><strong>Created at:</strong> <%= @household.created_at %></p>
+  
+  <p><strong>Updated at:</strong> <%= @household.updated_at %></p>
+
+  <% if @household.deleted_at.present? %>
+    <p><strong>Deleted at:</strong> <%= @household.deleted_at %></p>
+  <% end %>
+
+  <%= render partial: 'shared/links', locals: { class_name: 'Household', links: { edit: true, home: true }, object_id: @household.id } %>
+</div>
+
+<h2><%= fa_icon Contact.fa_icon_string %> Contacts</h2>
+
+<% @contacts.each do |contact| %>
+  <p><%= contact.id %>. <%= link_to "#{contact.display_name}", contact_path(contact) %></p>
+<% end %>
+
+<h2><%= fa_icon Address.fa_icon_string %> Addresses</h2>
+
+<% unless @household.has_verified_address? %>
+  <p class='warning'>No verified address!</p>
+<% end %>
+
+<% @addresses.each do |address| %>
+  <p><%= address.id %>. <% if address.the_verified_address? %><span class='verified'><%= verified_icon %></span><% end %> <%= link_to "#{address.display_info}", address_path(address) %></p>
+<% end %>
+
+<h2><%= fa_icon Correspondence.fa_icon_string %> Correspondences From</h2>
+
+<% @correspondences_from.each do |correspondence| %>
+  <p><%= correspondence.id %>. <%= link_to "#{correspondence.display_info}", correspondence_path(correspondence) %></p>
+<% end %>
+
+<h2><%= fa_icon Correspondence.fa_icon_string %> Correspondences To</h2>
+
+<% @correspondences_to.each do |correspondence| %>
+  <p><%= correspondence.id %>. <%= link_to "#{correspondence.display_info}", correspondence_path(correspondence) %></p>
+<% end %>

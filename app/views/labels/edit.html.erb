@@ -1,0 +1,5 @@
+<h1><%= fa_icon Label.fa_icon_string %> Editing Label <%= @label.id %></h1>
+
+<%= render 'form', label: @label %>
+
+<%= render partial: 'shared/links', locals: { class_name: 'Label', links: { show: true }, object_id: @label.id } %>

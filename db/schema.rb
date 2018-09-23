@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180601165613) do
+ActiveRecord::Schema.define(version: 20180922190846) do
 
   create_table "addresses", force: :cascade do |t|
-    t.string   "to",                               null: false
+    t.string   "recipient",                        null: false
     t.string   "line_1",                           null: false
     t.string   "line_2"
     t.string   "city",                             null: false
     t.string   "state",                            null: false
     t.string   "zip",                              null: false
-    t.string   "country",      default: "US",      null: false
+    t.string   "country",      default: "USA",     null: false
     t.string   "category",     default: "primary", null: false
     t.integer  "household_id"
     t.datetime "verified_at"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20180601165613) do
     t.index ["category"], name: "index_addresses_on_category"
     t.index ["deleted_at"], name: "index_addresses_on_deleted_at"
     t.index ["household_id"], name: "index_addresses_on_household_id"
-    t.index ["to"], name: "index_addresses_on_to"
+    t.index ["recipient"], name: "index_addresses_on_recipient"
     t.index ["verified_at"], name: "index_addresses_on_verified_at"
   end
 
@@ -68,19 +68,19 @@ ActiveRecord::Schema.define(version: 20180601165613) do
   end
 
   create_table "correspondences", force: :cascade do |t|
-    t.integer  "from_id",                            null: false
-    t.string   "from_type"
-    t.integer  "to_id",                              null: false
-    t.integer  "to_type"
-    t.string   "category",                           null: false
+    t.integer  "from_id",                                                null: false
+    t.string   "from_type",                                              null: false
+    t.integer  "to_id",                                                  null: false
+    t.string   "to_type",                                                null: false
+    t.string   "category",                                               null: false
     t.string   "occasion"
-    t.string   "status"
+    t.string   "status",                             default: "initial", null: false
     t.integer  "list_id"
     t.decimal  "cost",       precision: 8, scale: 2
     t.text     "notes"
     t.datetime "deleted_at"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
     t.index ["category"], name: "index_correspondences_on_category"
     t.index ["deleted_at"], name: "index_correspondences_on_deleted_at"
     t.index ["from_id", "from_type"], name: "index_correspondences_on_from_id_and_from_type"
@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 20180601165613) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.datetime "deleted_at"
+    t.string   "description"
     t.index ["deleted_at"], name: "index_households_on_deleted_at"
     t.index ["name"], name: "index_households_on_name"
   end

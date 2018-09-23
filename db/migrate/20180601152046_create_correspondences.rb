@@ -13,7 +13,7 @@ class CreateCorrespondences < ActiveRecord::Migration[5.0]
       t.index :status
       t.references :lists, index: true
       t.foreign_key :lists
-      t.decimal :cost, :precision => 8, :scale => 2
+      t.decimal :cost, precision: 8, scale: 2
       t.text :notes
       t.datetime :deleted_at
       t.index :deleted_at

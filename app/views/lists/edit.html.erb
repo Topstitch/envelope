@@ -1,0 +1,5 @@
+<h1><%= fa_icon List.fa_icon_string %> Editing List</h1>
+
+<%= render 'form', list: @list %>
+
+<%= render partial: 'shared/links', locals: { class_name: 'List', links: { show: true }, object_id: @list.id } %>

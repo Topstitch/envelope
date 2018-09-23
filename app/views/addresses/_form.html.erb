@@ -1,0 +1,76 @@
+<%= form_for(address) do |f| %>
+  <% if address.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(address.errors.count, "error") %> prohibited this address from being saved:</h2>
+
+      <ul>
+      <% address.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <strong><%= f.label 'Recipient*' %></strong>
+    <%= f.text_field :recipient %>
+  </p>
+
+  <p>
+    <strong><%= f.label 'Line 1*' %></strong>
+    <%= f.text_field :line_1 %>
+  </p>
+
+  <p>
+    <strong><%= f.label 'Line 2' %></strong>
+    <%= f.text_field :line_2 %>
+  </p>
+
+  <p>
+    <strong><%= f.label 'City*' %></strong>
+    <%= f.text_field :city %>
+  </p>
+
+  <p>
+    <strong><%= f.label 'State*' %></strong>
+    <%= f.text_field :state %>
+  </p>
+
+  <p>
+    <strong><%= f.label 'Zip*' %></strong>
+    <%= f.text_field :zip %>
+  </p>
+
+  <p>
+    <strong><%= f.label 'Country*' %></strong>
+    <%= f.text_field :country %>
+  </p>
+
+  <p>
+    <strong><%= f.label 'Category*' %></strong>
+    <%= f.select :category, Address::CATEGORIES %>
+  </p>
+
+  <p>
+    <strong><%= f.label 'Household' %></strong>
+    <%= f.collection_select(:household_id, Household.all, :id, :display_name, include_blank: true) %>
+  </p>
+
+  <p>
+    <strong><%= f.label :notes %></strong>
+    <%= f.text_area :notes, size: "60x12" %>
+  </p>
+
+  <p>
+    <strong><%= f.label 'Verified At' %></strong>
+    <%= date_select(:address, :verified_at, include_blank: true) %>
+  </p>
+
+  <p>
+    <strong>Verify now?</strong> <%= f.check_box :verify_now, {checked: true} %>
+  </p>
+
+  <div class="actions">
+    <%= f.submit 'Submit', class: 'submit-button'%>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+esmeralda:
+  recipient: The Magnificent Esmeralda Goat
+  line_1: 123 Test Lane
+  city: Testville
+  state: NC
+  zip: 12345-6789
+  country: USA
+  category: primary
+
+goatersons:
+  recipient: The Goaterson Family
+  line_1: 456 Test Lane
+  city: Testville
+  state: NC
+  zip: 12345-6789
+  country: USA
+  category: temporary
