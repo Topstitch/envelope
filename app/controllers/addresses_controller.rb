@@ -1,6 +1,11 @@
 class AddressesController < ApplicationController
   before_action :set_address, only: [:show, :edit, :update, :destroy]
 
+  DB_PARAMS = [:recipient, :line_1, :line_2, :city, :state, :zip, :country,
+               :category, :household_id, :verified_at, :notes]
+  OTHER_PARAMS = [:verify_now]
+  PARAMS_WHITELIST = DB_PARAMS + OTHER_PARAMS
+
   # GET /addresses
   def index
     @sort = params[:sort] || 'oldest'
@@ -32,8 +37,8 @@ class AddressesController < ApplicationController
 
   # POST /addresses
   def create
-    @address = Address.new(address_params)
-    if @address.save
+    @address = Address.new(db_params)
+    if @address.save && @address.verify_now(other_params[:verify_now])
       redirect_to @address, notice: 'Address was successfully created.'
     else
       render :new
@@ -42,7 +47,7 @@ class AddressesController < ApplicationController
 
   # PATCH/PUT /addresses/1
   def update
-    if @address.update(address_params)
+    if @address.update(db_params) && @address.verify_now(other_params[:verify_now])
       redirect_to @address, notice: 'Address was successfully updated.'
     else
       render :edit
@@ -64,7 +69,14 @@ class AddressesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def address_params
-    params.require(:address).permit(:recipient, :line_1, :line_2, :city, :state, :zip, :country,
-                                    :category, :household_id, :verified_at, :notes)
+    params.require(:address).permit(*PARAMS_WHITELIST)
+  end
+
+  def db_params
+    address_params.except(*OTHER_PARAMS)
+  end
+
+  def other_params
+    address_params.extract!(*OTHER_PARAMS)
   end
 end

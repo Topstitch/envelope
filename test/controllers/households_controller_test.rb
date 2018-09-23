@@ -20,7 +20,7 @@ class HouseholdsControllerTest < ActionDispatch::IntegrationTest
       post households_url, params: { household: { name: 'dolphin' } }
     end
 
-    assert_redirected_to households_url
+    assert_redirected_to household_url(@household)
   end
 
   test "should show household" do
@@ -35,7 +35,7 @@ class HouseholdsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update household" do
     patch household_url(@household), params: { household: { name: 'goat-bird' } }
-    assert_redirected_to households_url
+    assert_redirected_to household_url(@household)
   end
 
   test "should destroy household" do

@@ -38,7 +38,7 @@ class HouseholdsController < ApplicationController
   def create
     @household = Household.new(household_params)
     if @household.save
-      redirect_to households_url, notice: 'Household was successfully created.'
+      redirect_to @household, notice: 'Household was successfully created.'
     else
       render :new
     end
@@ -47,7 +47,7 @@ class HouseholdsController < ApplicationController
   # PATCH/PUT /households/1
   def update
     if @household.update(household_params)
-      redirect_to households_url, notice: 'Household was successfully updated.'
+      redirect_to @household, notice: 'Household was successfully updated.'
     else
       render :edit
     end

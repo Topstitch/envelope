@@ -47,6 +47,15 @@ class Address < ApplicationRecord
      #{country}"
   end
 
+  def verify_now(should_verify="0")
+    # should_verify comes in from check box params, thus the numerical booleans
+    if should_verify.to_i == 1 && household.present?
+      self.verified_at = Time.now
+      self.save!
+    end
+    true
+  end
+
   def the_verified_address?
     return false unless household.present?
     id == household.verified_address.id
