@@ -22,8 +22,22 @@ class Household < ApplicationRecord
     "#{name} #{description}"
   end
 
+  def verified_address
+    addresses.where.not(verified_at: nil).first
+  end
+
+  # rubocop:disable Naming/PredicateName
+  def has_verified_address?
+    verified_address.present?
+  end
+  # rubocop:enable Naming/PredicateName
+
   def self.home
     Contact.me.household
+  end
+
+  def self.unverified
+    all.select{ |household| !household.has_verified_address? }
   end
 
   def self.fa_icon_string

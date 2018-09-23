@@ -147,7 +147,25 @@ div {
   border-radius: 14px;
 }
 
+// SUCCESS
+
+.verified {
+  color: $submit-button-dark-green;
+}
+
+span.verified {
+  font-size: 26px;
+  vertical-align: text-bottom;
+}
+
 // ERRORS
+
+.warning {
+  color: $white;
+  font-weight: bold;
+  background-color: $warning;
+  padding: 10px;
+}
 
 #notice {
   color: $notice;

@@ -6,7 +6,9 @@
   <p><%= @list.notes %></p>
 
   <p><strong>Created at:</strong> <%= @list.created_at %></p>
+
   <p><strong>Updated at:</strong> <%= @list.updated_at %></p>
+  
   <% if @list.deleted_at.present? %>
     <p><strong>Deleted at:</strong> <%= @list.deleted_at %></p>
   <% end %>

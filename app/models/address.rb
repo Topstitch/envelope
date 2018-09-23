@@ -21,12 +21,14 @@ class Address < ApplicationRecord
                      SVN SLB ZAF SGS ESP LKA SDN SUR SJM SWZ SWE CHE TWN TJK TZA THA TLS TGO TKL TON TTO
                      TUN TUR TKM TCA TUV UGA UKR ARE GBR USA UMI URY UZB VUT VEN VNM VGB VIR WLF ESH ZMB
                      ZWE ALA CUB LBN ESP].freeze
+  USA = 'USA'.freeze
   CATEGORIES = %w[primary temporary].freeze
 
-  validates :state, inclusion: { in: FIFTY_US_STATES }, if: -> { country == 'USA' }
-  # custom validator for zip code?
+  validates :state, inclusion: { in: FIFTY_US_STATES }, if: -> { country == USA }
   validates :country, inclusion: { in: COUNTRY_CODES }
   validates :category, inclusion: { in: CATEGORIES }
+
+  validates :zip, us_zip_code: true
 
   acts_as_paranoid
 
@@ -35,6 +37,19 @@ class Address < ApplicationRecord
   def display_info
     verified_string = verified_at.present? ? "verified at #{format_date(verified_at)}" : "not verified"
     "#{category.upcase} #{verified_string}: #{recipient}, #{line_1}, #{city}, #{state}, #{zip}"
+  end
+
+  def formatted_address
+    "#{recipient}<br>
+     #{line_1}<br>
+     #{line_2 + '<br>' if line_2.present?}
+     #{city}, #{state}   #{zip}<br>
+     #{country}"
+  end
+
+  def the_verified_address?
+    return false unless household.present?
+    id == household.verified_address.id
   end
 
   def self.fa_icon_string

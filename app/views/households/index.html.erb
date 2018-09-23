@@ -21,6 +21,7 @@
         <td><%= household.description %></td>
         <td>Contacts: <%= household.contacts.count %></td>
         <td>Addresses: <%= household.addresses.count %></td>
+        <td><% if household.has_verified_address? %><%= verified_icon %><% else %><%= alert_icon %><% end %></td>
         <td style='width: 50px;'></td>
         <td><%= link_to 'Show', household %></td>
         <td><%= link_to 'Edit', edit_household_path(household) %></td>

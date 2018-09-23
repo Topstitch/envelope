@@ -12,6 +12,8 @@ class HouseholdsController < ApplicationController
       @households = Household.all.order('created_at DESC')
     when 'alphabetical'
       @households = Household.all.order('name ASC')
+    when 'unverified'
+      @households = Household.unverified
     end
   end
 

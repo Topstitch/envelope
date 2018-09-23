@@ -18,7 +18,7 @@ class AddressesController < ApplicationController
 
   # GET /addresses/1
   def show
-    @household = household
+    @household = @address.household
   end
 
   # GET /addresses/new
@@ -64,7 +64,7 @@ class AddressesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def address_params
-    params.require(:household).permit(:recipient, :line_1, :line_2, :city, :state, :zip, :country,
-                                      :category, :household_id, :verified_at, :notes)
+    params.require(:address).permit(:recipient, :line_1, :line_2, :city, :state, :zip, :country,
+                                    :category, :household_id, :verified_at, :notes)
   end
 end
