@@ -23,7 +23,8 @@ class Household < ApplicationRecord
   end
 
   def verified_address
-    addresses.where.not(verified_at: nil).first
+    potential_address = addresses.where.not(verified_at: nil).first
+    (potential_address.blank? || potential_address.expired?) ? nil : potential_address 
   end
 
   # rubocop:disable Naming/PredicateName

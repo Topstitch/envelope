@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180922190846) do
+ActiveRecord::Schema.define(version: 20180923035514) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "recipient",                        null: false
@@ -97,13 +97,14 @@ ActiveRecord::Schema.define(version: 20180922190846) do
   end
 
   create_table "households", force: :cascade do |t|
-    t.string   "name",        null: false
+    t.string   "name",                                null: false
     t.text     "notes"
     t.datetime "anniversary"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.datetime "deleted_at"
     t.string   "description"
+    t.integer  "address_stability_score", default: 0, null: false
     t.index ["deleted_at"], name: "index_households_on_deleted_at"
     t.index ["name"], name: "index_households_on_name"
   end

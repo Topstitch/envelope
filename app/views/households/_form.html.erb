@@ -17,6 +17,11 @@
   </p>
 
   <p>
+    <strong><%= f.label 'Address Stability Score*' %></strong>
+    <%= f.number_field :address_stability_score, min: 0, max: 5%>
+  </p>
+
+  <p>
     <strong><%= f.label :description %></strong>
     <%= f.text_field :description %>
   </p>

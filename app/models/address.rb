@@ -58,7 +58,34 @@ class Address < ApplicationRecord
 
   def the_verified_address?
     return false unless household.present?
-    id == household.verified_address.id
+    id == household.verified_address.try(:id)
+  end
+
+  def expired?
+    Time.now > expiration_date
+  end
+
+  def expiration_date
+    case household.address_stability_score
+    when 5
+      # parent-level, I would definitely know if they moved
+      verified_at + 20.years
+    when 4
+      # people who have houses and probably aren't going anywhere
+      verified_at + 3.years
+    when 3
+      # people who are good to check every year or so
+      verified_at + 1.year
+    when 2
+      # people who are good to check every six months or so
+      verified_at + 6.months
+    when 1
+      # people who are in between things
+      verified_at + 2.weeks
+    when 0
+      # I know someone has moved/their address is wrong
+      verified_at
+    end
   end
 
   def self.fa_icon_string
