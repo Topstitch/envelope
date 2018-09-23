@@ -2,8 +2,8 @@ class AddressesController < ApplicationController
   before_action :set_address, only: [:show, :edit, :update, :destroy]
 
   DB_PARAMS = [:recipient, :line_1, :line_2, :city, :state, :zip, :country,
-               :category, :household_id, :verified_at, :notes]
-  OTHER_PARAMS = [:verify_now]
+               :category, :household_id, :verified_at, :notes].freeze
+  OTHER_PARAMS = [:verify_now].freeze
   PARAMS_WHITELIST = DB_PARAMS + OTHER_PARAMS
 
   # GET /addresses

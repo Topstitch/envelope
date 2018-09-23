@@ -20,7 +20,7 @@ class HouseholdsControllerTest < ActionDispatch::IntegrationTest
       post households_url, params: { household: { name: 'dolphin' } }
     end
 
-    assert_redirected_to household_url(@household)
+    assert_redirected_to household_url(Household.last)
   end
 
   test "should show household" do

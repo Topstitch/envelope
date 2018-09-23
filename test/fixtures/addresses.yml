@@ -6,6 +6,8 @@ esmeralda:
   city: Testville
   state: NC
   zip: 12345-6789
+  country: USA
+  category: primary
 
 goatersons:
   recipient: The Goaterson Family
@@ -13,3 +15,5 @@ goatersons:
   city: Testville
   state: NC
   zip: 12345-6789
+  country: USA
+  category: temporary

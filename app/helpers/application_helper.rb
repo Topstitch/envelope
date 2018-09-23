@@ -1,6 +1,6 @@
 module ApplicationHelper
   def format_date(date)
-    date.strftime('%Y-%m-%d')
+    date.strftime('%Y-%m-%d') if date
   end
 
   def alert_icon

@@ -15,7 +15,7 @@
         <td><%= address.id %></td>
         <td><strong><%= address.recipient %></strong></td>
         <td><%= address.line_1 %></td>
-        <td>Household: <%= address.household.name %></td>
+        <td>Household: <% if address.household %><%= address.household.name %><% end %></td>
         <td><% if address.the_verified_address? %><%= verified_icon %><% end %></td>
         <td><%= link_to 'Show', address %></td>
         <td><%= link_to 'Edit', edit_address_path(address) %></td>

@@ -37,7 +37,7 @@ class Household < ApplicationRecord
   end
 
   def self.unverified
-    all.select{ |household| !household.has_verified_address? }
+    all.reject(&:has_verified_address?)
   end
 
   def self.fa_icon_string

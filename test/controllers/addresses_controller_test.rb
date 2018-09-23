@@ -2,7 +2,7 @@ require 'test_helper'
 
 class AddressesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @address = addresses(:one)
+    @address = addresses(:esmeralda)
   end
 
   test "should get index" do
@@ -17,7 +17,13 @@ class AddressesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create address" do
     assert_difference('Address.count') do
-      post addresses_url, params: { address: {  } }
+      post addresses_url, params: { address: { recipient: 'Terence the Turtle',
+                                               line_1: '123 Testy Avenue',
+                                               city: 'Imaginaryland',
+                                               state: 'WA',
+                                               zip: 53421,
+                                               country: 'USA',
+                                               category: 'primary' } }
     end
 
     assert_redirected_to address_url(Address.last)
@@ -34,7 +40,7 @@ class AddressesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update address" do
-    patch address_url(@address), params: { address: {  } }
+    patch address_url(@address), params: { address: { notes: 'maybe they are moving soon?' } }
     assert_redirected_to address_url(@address)
   end
 
